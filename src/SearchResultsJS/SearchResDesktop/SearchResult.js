@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 
-import useInputAccount from '../../AuthorizationJS/AuthorUtil/useInputAccount';
+//import useInputAccount from '../../AuthorizationJS/AuthorUtil/useInputAccount';
 import useSearchRes from '../SearchResUtil/useSearchRes';
 
 import GeneralSummTable from './GeneralSummTable';
@@ -64,17 +64,18 @@ const SpanError = styled.span`
 function SearchResult() {   
 
     const location = useLocation();
-  const { loggedIn } = useInputAccount();
-  const navigate = useNavigate();
+ // const { loggedIn } = useInputAccount();
+ // const navigate = useNavigate();
   const searchParams = location.state?.searchParams;
 
   const { isLoading, histogramData, documentData, error } = useSearchRes(searchParams);
 
- useEffect(() => {
+/* useEffect(() => {
     if (loggedIn) {
-      navigate('/account/1');
+     /// navigate('/account/1');
+     alert('WoW');
     }
-  }, [loggedIn, navigate]);
+  }, [loggedIn, navigate]);*/
 
 
   if (error || (!isLoading && (!documentData || !Array.isArray(documentData) || documentData.length === 0))) {

@@ -290,7 +290,7 @@ function Search() {
         intervalType: "month",
         histogramTypes: ["totalDocuments", "riskFactors"],
       };
-        navigate('/search/1', { state: { searchParams } });
+        navigate('/search/1', { state: { searchParams } });//'
     } else {
       console.log('Форма не валидна.');
       };

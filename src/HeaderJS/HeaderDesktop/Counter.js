@@ -66,8 +66,8 @@ const response = await fetch(url, {
   method: 'GET', mode: 'cors',
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
+    Accept: 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
   },
 });
 
