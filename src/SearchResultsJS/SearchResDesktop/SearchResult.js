@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
+import React/*, {useEffect}*/ from 'react';
+import {useLocation/*, useNavigate*/} from 'react-router-dom';
 
 //import useInputAccount from '../../AuthorizationJS/AuthorUtil/useInputAccount';
 import useSearchRes from '../SearchResUtil/useSearchRes';

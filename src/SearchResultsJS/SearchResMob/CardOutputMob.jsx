@@ -14,6 +14,7 @@ const CardOutputResult = styled.div`
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
         box-sizing: border-box;
         padding: 19px 14px 18px 24px;
+         overflow-y: auto;
 `;
 
 const LinkToSource = styled.div`

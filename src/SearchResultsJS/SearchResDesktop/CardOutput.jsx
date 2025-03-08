@@ -6,13 +6,16 @@ const CardOutputResult = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: left;
-        width: 641px;
         height: 694px;
+        width: 641px;
         border-radius: 10px;
         background-color: rgba(255, 255, 255, 1);
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
-        box-sizing: border-box;
         padding: 19px 30px 35px 30px;
+        overflow-y: auto;
+        &:not(:first-child) {
+            margin-left: 38px;
+        }
 `;
 
 const LinkToSource = styled.div`

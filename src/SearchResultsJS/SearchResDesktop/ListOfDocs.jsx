@@ -24,6 +24,7 @@ const Documents = styled.div`
         flex-direction: row;
         justify-content: left; 
         margin-top: 30px;
+        overflow-x: auto;
 `;
 
 const ShowInSource = styled.button`

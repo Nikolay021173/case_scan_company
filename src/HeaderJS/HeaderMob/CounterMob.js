@@ -62,7 +62,7 @@ setIsLoading(true);
 const url = 'https://gateway.scan-interfax.ru/api/v1/account/info';
 try {
 const response = await fetch(url, {
-  method: 'GET', mode: 'cors',
+  method: 'GET',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -104,7 +104,7 @@ return () => clearInterval(intervalId);
             <P>Использовано компаний<br /> <NumCompanies>{usedCompanyCount}</NumCompanies></P>
             <P>Лимит по компаниям<br /> <LimitCompanies>{companyLimit}</LimitCompanies></P>
             </div>
-      )};
+      )}
         </ContainerCounterMob>
     };
 

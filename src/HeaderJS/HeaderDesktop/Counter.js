@@ -63,10 +63,10 @@ setIsLoading(true);
 const url = 'https://gateway.scan-interfax.ru/api/v1/account/info';
 try {
 const response = await fetch(url, {
-  method: 'GET', mode: 'cors',
+  method: 'GET', 
   headers: {
     'Content-Type': 'application/json',
-    Accept: 'application/json',
+    'Accept': 'application/json',
     'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
   },
 });
@@ -76,6 +76,7 @@ if (!response.ok) {
 }
 
 const data = await response.json();
+console.log(data);
 setUsedCompanyCount(data.eventFiltersInfo.usedCompanyCount);
 setCompanyLimit(data.eventFiltersInfo.companyLimit);
 } catch (error) {
@@ -84,7 +85,6 @@ console.error("Ошибка при получении информации о к
 setIsLoading(false);
 }
 };
-
 
 fetchCompanyInfo();
 
