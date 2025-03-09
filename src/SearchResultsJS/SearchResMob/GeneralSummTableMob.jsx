@@ -51,13 +51,13 @@ const Arrow = styled.button`
 
 const SumOfData = styled.div`
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: left; 
         width: 298px;
-        height: 140px;
+        heigh: 140px;
         border-radius: 10px;
-        border: none;
-`;
+        overflow-x: hidden;
+`                                                                          
 
 const SummaryData = styled.div`
     display: flex;
@@ -141,7 +141,7 @@ const GeneralSummTable = ({searchData, loading, error}) => {
 <Result>Найдено {totalDataCount} вариантов</Result>
 <ContainerData>
     <Arrow onClick={() => scrollTable('left')}><ArrowLeft /></Arrow>
-    <SumOfData>
+    <SumOfData ref={tableWrapperRef}>
         <SummaryData>
             <SpanData style={{marginLeft: '15px', alignSelf: 'center'}}>Период</SpanData>
             <SpanData style={{marginLeft: '49px', alignSelf: 'center'}}>Всего</SpanData>
@@ -158,10 +158,10 @@ const GeneralSummTable = ({searchData, loading, error}) => {
                               </SummaryData>
                             ) : ( combinedData.map((item, index) => (
     <React.Fragment key={index}>
-        <SummaryData style={{backgroundColor: 'rgba(255, 255, 255, 1)', 
+        <SummaryData ref={tableWrapperRef} style={{backgroundColor: 'rgba(255, 255, 255, 1)', 
          boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.2)',
          borderTopLeftRadius: '0px', borderBottomLeftRadius: '10px',
-         borderBottomRightRadius: '10px', borderTopRightRadius: '0px'}}>
+         borderBottomRightRadius: '10px', borderTopRightRadius: '0px', marginTop: '75px', marginLeft: '-298px'}}>
             <SpanData style={{marginLeft: '9px', color: 'rgba(0, 0, 0, 1)', 
             alignSelf: 'center'}}>{item.period}</SpanData>
             <SpanData style={{color: 'rgba(0, 0, 0, 1)', alignSelf: 'left', 
@@ -173,7 +173,7 @@ const GeneralSummTable = ({searchData, loading, error}) => {
         ))
     )};
     </SumOfData>
-    <Arrow><ArrowDarkRigth /></Arrow>
+    <Arrow onClick={() => scrollTable('right')}><ArrowDarkRigth /></Arrow>
 </ContainerData>
 </SearchResults>  
     )};

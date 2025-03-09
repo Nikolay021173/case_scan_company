@@ -16,10 +16,12 @@ const SumOfData = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: left; 
-        width: 1260px;
+        max-width: 1260px;
+        min-width: 1260px;
         height: 158px;
         border-radius: 10px;
-        border: 2px solid rgba(2, 148, 145, 1)
+        border: 2px solid rgba(2, 148, 145, 1);
+       overflow-x: hidden;
 `;
 
 const Arrow = styled.button`
@@ -141,7 +143,7 @@ const GeneralSummTable = ({searchData, loading, error}) => {
                 <Result>Найдено {totalDataCount} вариантов</Result>
         <ContainerData>
         <Arrow onClick={() => scrollTable('left')}><ArrowLeft /></Arrow>
-        <SumOfData>
+        <SumOfData ref={tableWrapperRef}>
             <SummaryData>
                 <SpanData>Период</SpanData>
                 <SpanData style={{marginTop: '26px'}}>Всего</SpanData>
