@@ -64,6 +64,7 @@ const url = 'https://gateway.scan-interfax.ru/api/v1/account/info';
 try {
 const response = await fetch(url, {
   method: 'GET', 
+  mode: 'cors', 
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -76,9 +77,10 @@ if (!response.ok) {
 }
 
 const data = await response.json();
-console.log(data);
+
 setUsedCompanyCount(data.eventFiltersInfo.usedCompanyCount);
 setCompanyLimit(data.eventFiltersInfo.companyLimit);
+console.log(data);
 } catch (error) {
 console.error("Ошибка при получении информации о компаниях:", error);
 } finally {

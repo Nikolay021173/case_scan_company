@@ -15,7 +15,8 @@ const useSearchRes = (searchParams) => {
 
         const [histogramResponse, publicationIdsResponse] = await Promise.all([
           fetch('https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms', {
-            method: 'POST', 
+            method: 'POST',
+            mode: 'cors',  
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
@@ -26,6 +27,7 @@ const useSearchRes = (searchParams) => {
 
           fetch('https://gateway.scan-interfax.ru/api/v1/objectsearch', {
             method: 'POST', 
+            mode: 'cors', 
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
@@ -53,6 +55,7 @@ const useSearchRes = (searchParams) => {
         const [documentsData] = await Promise.all([
           fetch('https://gateway.scan-interfax.ru/api/v1/documents', {
             method: 'POST', 
+            mode: 'cors', 
             headers: {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
