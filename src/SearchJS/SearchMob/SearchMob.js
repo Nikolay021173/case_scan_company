@@ -344,7 +344,7 @@ if (!startingDate || !endDate) {
 
                         <Label htmlFor="docNumber" style={{marginTop: '30px'}}>Количество документов в выдаче
                             <Sup style={{color : varColorStar}}>*</Sup></Label>
-                        <InpText type='text' id='docNumber' name='docNumber' value={numbOfDoc} 
+                        <InpText type='number' id='docNumber' name='docNumber' value={numbOfDoc} 
                         onChange={(e) => {const newValue = e.target.value;
                             setNumbOfDoc(newValue);
                                           setError();  
