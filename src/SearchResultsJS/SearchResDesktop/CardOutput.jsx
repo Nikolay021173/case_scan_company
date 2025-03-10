@@ -6,8 +6,8 @@ const CardOutputResult = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: left;
-        height: 694px;
-        width: 641px;
+        min-height: 694px;
+        min-width: 641px;
         border-radius: 10px;
         background-color: rgba(255, 255, 255, 1);
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);

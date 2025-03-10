@@ -7,8 +7,10 @@ const CardOutputResult = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: left;
-        width: 335px;
-        height: 694px;
+        min-width: 335px;
+        min-height: 694px;
+        max-width: 335px;
+        max-height: 694px;
         border-radius: 10px;
         background-color: rgba(255, 255, 255, 1);
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
