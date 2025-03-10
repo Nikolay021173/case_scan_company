@@ -51,13 +51,14 @@ const Arrow = styled.button`
 
 const SumOfData = styled.div`
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: left; 
         width: 298px;
-        heigh: 140px;
+        min-height: 140px;
+        max-height: 140px;
         border-radius: 10px;
-        overflow-x: hidden;
-`                                                                          
+        overflow-y: hidden;
+` ;                                                                         
 
 const SummaryData = styled.div`
     display: flex;
@@ -66,7 +67,8 @@ const SummaryData = styled.div`
     align-items: center;
     background-color: rgba(2, 148, 145, 1);
     width: 298px;
-    height: 75px;
+    min-height: 75px;
+   
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 `;
@@ -112,7 +114,7 @@ const GeneralSummTable = ({searchData, loading, error}) => {
   
     useEffect(() => {
       if (tableWrapperRef.current) {
-        tableWrapperRef.current.scrollLeft = 0;
+        tableWrapperRef.current.scrollTop = 0;
       }
     }, [combinedData]);
   
@@ -130,9 +132,9 @@ const GeneralSummTable = ({searchData, loading, error}) => {
     }, [searchData, error]);
   
     const scrollTable = (direction) => {
-      const scrollAmount = direction === 'left' ? -300 : 300;
+      const scrollAmount = direction === 'top' ? -75 : 75;
       if (tableWrapperRef.current) {
-        tableWrapperRef.current.scrollLeft += scrollAmount;
+        tableWrapperRef.current.scrollTop += scrollAmount;
       }
     };
     return (
@@ -140,7 +142,7 @@ const GeneralSummTable = ({searchData, loading, error}) => {
 <H3>Общая сводка</H3>
 <Result>Найдено {totalDataCount} вариантов</Result>
 <ContainerData>
-    <Arrow onClick={() => scrollTable('left')}><ArrowLeft /></Arrow>
+    <Arrow onClick={() => scrollTable('top')}><ArrowLeft /></Arrow>
     <SumOfData ref={tableWrapperRef}>
         <SummaryData>
             <SpanData style={{marginLeft: '15px', alignSelf: 'center'}}>Период</SpanData>
@@ -158,10 +160,10 @@ const GeneralSummTable = ({searchData, loading, error}) => {
                               </SummaryData>
                             ) : ( combinedData.map((item, index) => (
     <React.Fragment key={index}>
-        <SummaryData ref={tableWrapperRef} style={{backgroundColor: 'rgba(255, 255, 255, 1)', 
+        <SummaryData style={{backgroundColor: 'rgba(255, 255, 255, 1)', 
          boxShadow: '0px 0px 20px 0px rgba(0, 0, 0, 0.2)',
          borderTopLeftRadius: '0px', borderBottomLeftRadius: '10px',
-         borderBottomRightRadius: '10px', borderTopRightRadius: '0px', marginTop: '75px', marginLeft: '-298px'}}>
+         borderBottomRightRadius: '10px', borderTopRightRadius: '0px'}}>
             <SpanData style={{marginLeft: '9px', color: 'rgba(0, 0, 0, 1)', 
             alignSelf: 'center'}}>{item.period}</SpanData>
             <SpanData style={{color: 'rgba(0, 0, 0, 1)', alignSelf: 'left', 
@@ -173,7 +175,7 @@ const GeneralSummTable = ({searchData, loading, error}) => {
         ))
     )};
     </SumOfData>
-    <Arrow onClick={() => scrollTable('right')}><ArrowDarkRigth /></Arrow>
+    <Arrow onClick={() => scrollTable('bottom')}><ArrowDarkRigth /></Arrow>
 </ContainerData>
 </SearchResults>  
     )};

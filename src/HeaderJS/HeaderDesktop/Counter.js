@@ -77,14 +77,14 @@ if (!response.ok) {
 }
 
 const data = await response.json();
+  
+  setUsedCompanyCount(data.eventFiltersInfo.usedCompanyCount);
+  setCompanyLimit(data.eventFiltersInfo.companyLimit);
 
-setUsedCompanyCount(data.eventFiltersInfo.usedCompanyCount);
-setCompanyLimit(data.eventFiltersInfo.companyLimit);
-console.log(data);
 } catch (error) {
-console.error("Ошибка при получении информации о компаниях:", error);
+  console.error("Ошибка при получении информации о компаниях:", error);
 } finally {
-setIsLoading(false);
+  setIsLoading(false);
 }
 };
 
